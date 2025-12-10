@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1><a href="/">HOME</a>|<a href="/app2/demo">demo1</a></h1>
+    <h1 class="dis">hello i am show</h1>
+    <form action="">
+        <table border="1" style="width: 50%;">
+            <tr>
+                <th>sno</th>
+                <th>name</th>
+                <th>age</th>
+                <th>dept</th>
+                <th>phone number</th>
+                <th colspan="2">Actions</th>
+            </tr>
+            {% for i in result %}
+            <tr>
+                <td>{{i.sno}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.age}}</td>
+                <td>{{i.dept}}</td>
+                <td>{{i.ph}}</td>
+                <td style="text-align: center;"><button style="color: white; border: none; border-radius: 5px; padding: 7px; background-color: green;"><a href="{% url 'update' i.sno %}">EDIT</a></button></td>
+                <td style="text-align: center;"><button style="color: white; border: none; border-radius: 5px; padding: 7px; background-color: red;"><a href="{% url 'delete' i.sno %}">DELETE</a></button></td>
+            </tr>
+            {% endfor %}
+
+
+        </table>
+    </form>
+</body>
+
+</html>

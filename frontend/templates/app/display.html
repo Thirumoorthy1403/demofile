@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>app</title>
+    <link rel="stylesheet" href="{% static 'css/display.css' %}">
+</head>
+
+<body>
+    <h1><a href="/">HOME</a>|<a href="/app2/demo">demo1</a></h1>
+    <h1 class="dis">hello i am display</h1>
+    <table border="1" style="width: 50%;">
+        <tr>
+            <th>sno</th>
+            <th>name</th>
+            <th>age</th>
+            <th>dept</th>
+            <th>phone number</th>
+        </tr>
+        {% for i in a %}
+        <tr>
+            <td>{{i.sno}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.dept}}</td>
+            <td>{{i.ph}}</td>
+        </tr>
+        {% endfor %}
+
+
+    </table>
+    <img src="{% static 'images/first.jpg' %}" alt="first image is loading ...">
+    <form action="" Method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                {{form.as_table}}
+            </tr>
+        </table>
+        <button>submit</button>
+    </form>
+    {{form.as_p}}
+    {{form.as_ul}}
+    <script src="{% static 'script/display.js' %}"></script>
+</body>
+
+</html>
